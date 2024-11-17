@@ -21,14 +21,22 @@ The output displays one of the following messages:
 
 int main() {
     int n;
-    int rev=0,r,no;
-    scanf("%d", &n);
+    int rev=0,r,no;     //rev = 0: Stores the reversed number.   //no: A copy of the original number n for comparison after reversing.
+    scanf("%d", &n);    //r: Temporarily holds the remainder (last digit) during reversal.
     no = n;
     while (n>0) {
         r = n % 10;
         rev = rev * 10 + r;
         n /= 10;
     }
+
+    /*A while loop iterates as long as n > 0:
+The last digit of n is extracted using n % 10 and stored in r.
+This digit (r) is added to rev, after multiplying rev by 10 to shift the existing digits.
+n is divided by 10 to remove the last digit, reducing the number progressively.
+After the loop, rev contains the reversed number.
+If no == rev (original number equals the reversed number), the program prints that the number is a palindrome.
+Otherwise, it prints that the number is not a palindrome.*/
     if (no == rev)
         printf("%d is a Palindrome",no);
     else
